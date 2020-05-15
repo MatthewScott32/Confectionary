@@ -10,7 +10,7 @@ def variety_list(request):
 
             db_cursor = conn.cursor()
             db_cursor.execute("""
-            select
+            SELECT
                 v.id,
                 v.name,
                 v.country_of_origin
