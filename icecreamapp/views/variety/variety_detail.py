@@ -25,27 +25,4 @@ def variety_detail(request, variety_id):
             WHERE v.id = ?
             """, (variety_id,))
 
-        return db_cursor.fetchone()
-    
-    def create_variety(cursor, row):
-        row = sqlite3.Row(cursor, row)
 
-        variety = Variety()
-        variety.id = row["id"]
-        variety.name = row["name"]
-        variety.country_of_origin = row['country_of_origin']
-
-        variety.all_flavors = list()
-
-        flavor = Flavor()
-        flavor.id = row['flavor_id']
-        flavor.name = row['flavor_name']
-        flavor.alcohol_percent = row['alcohol_percent']
-        flavor.toppings = row["toppings"]
-        flavor.variety_flavor_id = row["variety_flavor_id"]
-
-    
-
-    
-    
-        return (variety,flavor,)
